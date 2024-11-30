@@ -160,7 +160,11 @@ class Stores(models.Model):
 
 
 class UserAuth(models.Model):
-    user_id = models.IntegerField()
+    user = models.OneToOneField(
+        'Users',
+        on_delete=models.DO_NOTHING,
+        db_column='user_id',
+    )
     identity_type = models.CharField(max_length=50)
     password = models.TextField(blank=True, null=True)
     token = models.TextField(blank=True, null=True)
