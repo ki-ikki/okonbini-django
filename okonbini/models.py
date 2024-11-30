@@ -11,7 +11,10 @@ from django.db import models
 from django.db import models
 
 class Contacts(models.Model):
-    user_id = models.IntegerField()
+    user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     email = models.CharField(max_length=255)
     content = models.TextField()
     created_at = models.DateTimeField(blank=True, null=True)
@@ -21,8 +24,14 @@ class Contacts(models.Model):
         db_table = 'contacts'
 
 class Favorites(models.Model):
-    item_id = models.IntegerField()
-    user_id = models.IntegerField()
+    item_id = models.ForeignKey(
+        'Items',
+        on_delete=models.DO_NOTHING,
+    )
+    user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
@@ -33,8 +42,14 @@ class Favorites(models.Model):
 
 
 class Follows(models.Model):
-    follower_user_id = models.IntegerField()
-    followee_user_id = models.IntegerField()
+    follower_user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
+    followee_user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
 
@@ -55,7 +70,10 @@ class ItemCategories(models.Model):
 
 
 class ItemImages(models.Model):
-    item_id = models.IntegerField()
+    item_id = models.OneToOneField(
+        'Items',
+        on_delete=models.DO_NOTHING,
+    )
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
 
@@ -65,8 +83,14 @@ class ItemImages(models.Model):
 
 
 class ItemRatings(models.Model):
-    item_id = models.IntegerField()
-    store_id = models.IntegerField()
+    item_id = models.ForeignKey(
+        'Items',
+        on_delete=models.DO_NOTHING,
+    )
+    store_id = models.ForeignKey(
+        'Stores',
+        on_delete=models.DO_NOTHING,
+    )
     favorite_weekly_count = models.IntegerField(blank=True, null=True)
     favorite_monthly_count = models.IntegerField(blank=True, null=True)
     favorite_total_count = models.IntegerField(blank=True, null=True)
@@ -82,8 +106,14 @@ class ItemRatings(models.Model):
 
 
 class Items(models.Model):
-    store_id = models.IntegerField()
-    category_id = models.IntegerField()
+    store_id = models.ForeignKey(
+        'Stores',
+        on_delete=models.DO_NOTHING,
+    )
+    category_id = models.OneToOneField(
+        'ItemCategories',
+        on_delete=models.DO_NOTHING,
+    )
     item_name = models.CharField(max_length=255)
     item_info = models.TextField()
     price = models.IntegerField()
@@ -99,8 +129,14 @@ class Items(models.Model):
 
 
 class Likes(models.Model):
-    review_id = models.IntegerField()
-    user_id = models.IntegerField()
+    review_id = models.ForeignKey(
+        'Reviews',
+        on_delete=models.DO_NOTHING,
+    )
+    user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
@@ -111,7 +147,10 @@ class Likes(models.Model):
 
 
 class ReviewImages(models.Model):
-    review_id = models.IntegerField()
+    review_id = models.ForeignKey(
+        'Reviews',
+        on_delete=models.DO_NOTHING,
+    )
     review_image_url = models.TextField()
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -123,7 +162,10 @@ class ReviewImages(models.Model):
 
 
 class Reviews(models.Model):
-    user_id = models.IntegerField()
+    user_id = models.ForeignKey(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     content = models.TextField()
     reply_review_id = models.IntegerField(blank=True, null=True)
     item_id = models.IntegerField()
@@ -137,7 +179,10 @@ class Reviews(models.Model):
 
 
 class StoreLogos(models.Model):
-    store_id = models.IntegerField()
+    store_id = models.OneToOneField(
+        'Stores',
+        on_delete=models.DO_NOTHING,
+    )
     store_image_url = models.TextField()
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -160,7 +205,10 @@ class Stores(models.Model):
 
 
 class UserAuth(models.Model):
-    user_id = models.IntegerField()
+    user_id = models.OneToOneField(
+        'Users',
+        on_delete=models.DO_NOTHING,
+    )
     identity_type = models.CharField(max_length=50)
     password = models.TextField(blank=True, null=True)
     token = models.TextField(blank=True, null=True)
