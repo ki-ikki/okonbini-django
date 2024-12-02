@@ -1,31 +1,31 @@
 from django.contrib import admin
-from .models import Contacts
-from .models import Favorites
-from .models import Follows
-from .models import ItemCategories
-from .models import ItemImages
-from .models import ItemRatings
-from .models import Items
-from .models import Likes
-from .models import ReviewImages
-from .models import Reviews
-from .models import StoreLogos
-from .models import Stores
-from .models import UserAuth
-from .models import Users
+from .models.Contact import Contact
+from .models.Favorite import Favorite
+from .models.Follow import Follow
+from .models.ItemCategory import ItemCategory
+from .models.ItemImage import ItemImage
+from .models.ItemRating import ItemRating
+from .models.Item import Item
+from .models.Like import Like
+from .models.ReviewImage import ReviewImage
+from .models.Review import Review
+from .models.StoreLogo import StoreLogo
+from .models.Store import Store
+from .models.UserAuth import UserAuth
+from .models.User import User
 
 # Register your models here.
-admin.site.register(Contacts)
-admin.site.register(Favorites)
-admin.site.register(Follows)
-admin.site.register(ItemCategories)
-admin.site.register(ItemImages)
-admin.site.register(ItemRatings)
-admin.site.register(Items)
-admin.site.register(Likes)
-admin.site.register(ReviewImages)
-admin.site.register(Reviews)
-admin.site.register(StoreLogos)
-admin.site.register(Stores)
+admin.site.register(Contact)
+admin.site.register(Favorite)
+admin.site.register(Follow)
+admin.site.register(ItemCategory)
+admin.site.register(ItemImage)
+admin.site.register(ItemRating)
+admin.site.register(Item)
+admin.site.register(Like)
+admin.site.register(ReviewImage)
+admin.site.register(Review)
+admin.site.register(StoreLogo)
+admin.site.register(Store)
 admin.site.register(UserAuth)
-admin.site.register(Users)
+admin.site.register(User)
