@@ -1,0 +1,21 @@
+from django.db import models
+from django.utils.timezone import now
+
+class ItemImage(models.Model):
+    item_image_url = models.TextField()
+    created_at = models.DateTimeField(blank=True, null=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        # managed = False
+        db_table = 'item_images'
+
+def create_item_image(
+    itemImageUrl,
+    ):
+        itemImage = ItemImage.objects.create(
+            item_image_url = itemImageUrl,
+            created_at = now(),
+            updated_at = now(),
+        )
+        return itemImage
