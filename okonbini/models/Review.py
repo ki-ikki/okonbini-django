@@ -18,3 +18,6 @@ class Review(models.Model):
     class Meta:
         # managed = False
         db_table = 'reviews'
+
+    def __str__(self):
+        return f'{self.user} / {self.item_id}'

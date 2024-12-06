@@ -12,3 +12,6 @@ class Contact(models.Model):
     class Meta:
         # managed = False
         db_table = 'contacts'
+
+    def __str__(self):
+        return f'{self.email} / {self.content}'
