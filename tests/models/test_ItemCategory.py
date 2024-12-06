@@ -1,15 +1,15 @@
 from django.test import TestCase
-from okonbini.models.ItemCategory import create_item_category
+from okonbini.models.ItemCategory import ItemCategory
 
 class CreateItemCategoryTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_create_item_category_success(self):
+    def testCreateItemCategorySuccess(self):
         """正常系: アイテムカテゴリが正常に作成される"""
         itemCategoryName = "Test Category"
 
-        itemCategory = create_item_category(
+        itemCategory = ItemCategory.createItemCategory(
             itemCategoryName,
         )
 

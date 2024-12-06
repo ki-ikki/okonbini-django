@@ -14,14 +14,17 @@ class StoreLogo(models.Model):
         # managed = False
         db_table = 'store_logos'
 
-def create_store_logo(
-    store,
-    store_image_url,
-    ):
-        storeLogo = StoreLogo.objects.create(
-            store = store,
-            store_image_url = store_image_url,
-            created_at = now(),
-            updated_at=now(),
-        )
-        return storeLogo
+    def __str__(self):
+        return f'{self.store} / {self.store_image_url}'
+
+    def createStoreLogo(
+        store,
+        store_image_url,
+        ):
+            storeLogo = StoreLogo.objects.create(
+                store = store,
+                store_image_url = store_image_url,
+                created_at = now(),
+                updated_at=now(),
+            )
+            return storeLogo

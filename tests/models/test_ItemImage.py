@@ -1,15 +1,15 @@
 from django.test import TestCase
-from okonbini.models.ItemImage import create_item_image
+from okonbini.models.ItemImage import ItemImage
 
 class CreateItemImageTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_create_item_image_success(self):
+    def testCreateItemImageSuccess(self):
         """正常系: アイテム画像が正常に作成される"""
         itemImageUrl = "https://example"
 
-        itemImage = create_item_image(
+        itemImage = ItemImage.createItemImage(
             itemImageUrl,
         )
 

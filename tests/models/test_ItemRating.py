@@ -1,6 +1,6 @@
 from django.test import TestCase
-from okonbini.models.ItemRating import create_test_item_rating
-from tests.factories import create_test_item, create_test_store
+from okonbini.models.ItemRating import ItemRating
+from tests.models.factories import createTestItem, createTestStore
 
 class CreateItemRatingTestCase(TestCase):
     def setUp(self):
@@ -8,8 +8,8 @@ class CreateItemRatingTestCase(TestCase):
 
     def test_create_item_rating_success(self):
         """正常系: 商品評価情報が正常に作成される"""
-        item = create_test_item()
-        store = create_test_store()
+        item = createTestItem()
+        store = createTestStore()
         favoriteWeeklyCount = 10
         favoriteMonthlyCount = 20
         favoriteTotalCount = 30
@@ -17,7 +17,7 @@ class CreateItemRatingTestCase(TestCase):
         reviewMonthlyCount = 50
         reviewTotalCount = 60
 
-        itemRating = create_test_item_rating(
+        itemRating = ItemRating.createTestItemRating(
             item,
             store,
             favoriteWeeklyCount,

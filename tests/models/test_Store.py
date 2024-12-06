@@ -1,17 +1,17 @@
 from django.test import TestCase
-from okonbini.models.Store import create_store
+from okonbini.models.Store import Store
 
 class CreateStoreTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_create_store_success(self):
+    def testCreateStoreSuccess(self):
         """正常系: ストアが正常に作成される"""
         store_name = "Test Store"
         color_code = "#FFFFFF"
         is_active = True
 
-        store = create_store(store_name, color_code, is_active)
+        store = Store.createStore(store_name, color_code, is_active)
 
         self.assertIsNotNone(store.id)
         self.assertEqual(store.store_name, store_name)

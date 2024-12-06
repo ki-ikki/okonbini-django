@@ -13,3 +13,6 @@ class ReviewImage(models.Model):
     class Meta:
         # managed = False
         db_table = 'review_images'
+
+    def __str__(self):
+        return f'{self.review} / {self.review_image_url}'

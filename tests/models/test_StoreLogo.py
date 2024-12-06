@@ -1,17 +1,17 @@
 from django.test import TestCase
-from okonbini.models.StoreLogo import create_store_logo
-from .factories import create_test_store
+from okonbini.models.StoreLogo import StoreLogo
+from tests.models.factories import createTestStore
 
 class CreateStoreLogoTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_create_store_logo_success(self):
+    def testCreateStoreLogoSuccess(self):
         """正常系: ストアロゴが正常に作成される"""
-        store = create_test_store()
+        store = createTestStore()
         storeImageUrl = "https://test.com/test.jpg"
 
-        storeLogo = create_store_logo(
+        storeLogo = StoreLogo.createStoreLogo(
             store,
             storeImageUrl
         )

@@ -23,29 +23,32 @@ class ItemRating(models.Model):
         # managed = False
         db_table = 'item_ratings'
 
-def create_test_item_rating(
-    item,
-    store,
-    favoriteWeeklyCount,
-    favoriteMonthlyCount,
-    favoriteTotalCount,
-    reviewWeeklyCount,
-    reviewMonthlyCount,
-    reviewTotalCount
-):
-    """
-    商品評価情報を作成
-    """
-    itemRating = ItemRating.objects.create(
-        item = item,
-        store = store,
-        favorite_weekly_count = favoriteWeeklyCount,
-        favorite_monthly_count = favoriteMonthlyCount,
-        favorite_total_count = favoriteTotalCount,
-        review_weekly_count = reviewWeeklyCount,
-        review_monthly_count = reviewMonthlyCount,
-        review_total_count = reviewTotalCount,
-        created_at = now()
-        )
+    def __str__(self):
+        return f'{self.item} / {self.store}'
 
-    return itemRating
+    def createItemRating(
+        item,
+        store,
+        favoriteWeeklyCount,
+        favoriteMonthlyCount,
+        favoriteTotalCount,
+        reviewWeeklyCount,
+        reviewMonthlyCount,
+        reviewTotalCount
+    ):
+        """
+        商品評価情報を作成
+        """
+        itemRating = ItemRating.objects.create(
+            item = item,
+            store = store,
+            favorite_weekly_count = favoriteWeeklyCount,
+            favorite_monthly_count = favoriteMonthlyCount,
+            favorite_total_count = favoriteTotalCount,
+            review_weekly_count = reviewWeeklyCount,
+            review_monthly_count = reviewMonthlyCount,
+            review_total_count = reviewTotalCount,
+            created_at = now()
+            )
+
+        return itemRating

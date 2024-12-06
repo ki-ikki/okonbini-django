@@ -1,23 +1,23 @@
 from django.test import TestCase
-from okonbini.models.Item import create_item
-from .factories import create_test_store, create_test_category,create_test_item_image
+from okonbini.models.Item import Item
+from .factories import createTestStore, createTestCategory,createTestItemImage
 
 class CreateItemTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_create_item_success(self):
+    def testCreateItemSuccess(self):
         """正常系: アイテムが正常に作成される"""
-        store = create_test_store()
-        itemCategory = create_test_category()
-        itemImage = create_test_item_image()
+        store = createTestStore()
+        itemCategory = createTestCategory()
+        itemImage = createTestItemImage()
         itemName = "Test Item"
         itemInfo = "This is a test item."
         price = 1000
         releaseDate = "2021-01-01"
         isActive = True
 
-        item = create_item(
+        item = Item.createItem(
             store,
             itemCategory,
             itemImage,
