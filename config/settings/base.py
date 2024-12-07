@@ -11,23 +11,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-20nf2_rib#ezb*mm^w69ck+r=*ptx=6e2af9zs_@oa(+06xso_'
+# SECRET_KEY = 'django-insecure-20nf2_rib#ezb*mm^w69ck+r=*ptx=6e2af9zs_@oa(+06xso_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -70,22 +64,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # PostgreSQL 用のバックエンドを指定
-        'NAME': 'okonbini_db',  # データベース名
-        'USER': 'administrator',  # ユーザー名
-        'PASSWORD': 'administrator',  # パスワード
-        'HOST': 'okonbini-postgre',  # PostgreSQL サービス名（docker-compose.yml のサービス名と一致）
-        'PORT': '5432',  # ポート番号
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

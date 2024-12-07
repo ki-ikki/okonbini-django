@@ -3,22 +3,14 @@ services:
     container_name: okonbini-djnago
     command: python manage.py runserver 0.0.0.0:8000
     build: .
-    # environment:
-    #   - DB_NAME=okonbini_db
-    #   - DB_USER=administrator
-    #   - DB_PASSWORD=administrator
-    #   - DB_HOST=my_postgres
-    #   - DB_PORT=5432
     ports:
       - "8000:8000"
     networks:
       - app_net
-    # depends_on:
-    #   - okonbini-postgre
     volumes:
       - .:/app
       - ./logs:/app/logs
 
 networks:
   app_net:
-   external: true
+    external: true
