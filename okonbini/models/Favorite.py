@@ -16,3 +16,6 @@ class Favorite(models.Model):
     class Meta:
         # managed = False
         db_table = 'favorites'
+
+    def __str__(self):
+        return f'{self.user} / {self.item}'

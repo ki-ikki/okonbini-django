@@ -10,12 +10,15 @@ class ItemImage(models.Model):
         # managed = False
         db_table = 'item_images'
 
-def create_item_image(
-    itemImageUrl,
-    ):
-        itemImage = ItemImage.objects.create(
-            item_image_url = itemImageUrl,
-            created_at = now(),
-            updated_at = now(),
-        )
-        return itemImage
+    def __str__(self):
+        return f'{self.item_image_url}'
+
+    def createItemImage(
+        itemImageUrl,
+        ):
+            itemImage = ItemImage.objects.create(
+                item_image_url = itemImageUrl,
+                created_at = now(),
+                updated_at = now(),
+            )
+            return itemImage

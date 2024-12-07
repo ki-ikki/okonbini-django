@@ -10,6 +10,13 @@ WORKDIR /app
 # pipの最新バージョンにアップグレード
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir psycopg
+RUN pip install python-dotenv
+RUN pip install icecream
+RUN pip install beautifulsoup4
+RUN pip install requests
+RUN pip install -q -U google-generativeai
+RUN apt-get update
+RUN apt-get install -y postgresql-client
 
 # 依存関係のインストール
 COPY requirements.txt /app/

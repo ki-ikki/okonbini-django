@@ -17,3 +17,6 @@ class Follow(models.Model):
     class Meta:
         # managed = False
         db_table = 'follows'
+
+    def __str__(self):
+        return f'{self.follower_user} / {self.followee_user}'

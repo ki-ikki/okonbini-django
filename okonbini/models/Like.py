@@ -16,3 +16,6 @@ class Like(models.Model):
     class Meta:
         # managed = False
         db_table = 'likes'
+
+    def __str__(self):
+        return f'{self.user} / {self.review}'
