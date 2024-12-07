@@ -62,5 +62,5 @@ class ItemCategory(models.Model):
 
         return ItemCategory.objects.get(category_name=itemCategoryName)
 
-    def getItemCategoryList():
-        return ItemCategory.objects.all()
+    def getItemCategoryNameList():
+        return ItemCategory.objects.values_list('category_name', flat=True)
