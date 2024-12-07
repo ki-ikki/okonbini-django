@@ -1,11 +1,22 @@
 from django.test import TestCase
-from okonbini.service.SevenElevenService import scrapingSevenElevenExistingProducts
+from okonbini.service.SevenElevenService import scrapingSevenElevenExistingProducts, scrapingSevenElevenNewProducts
 from tests.models.factories import createTestStore, createTestItemCategoryList
 
 class TestSevenElevenService(TestCase):
-    def test_scraping_function(self):
+    def testScrapingSevenElevenExistingProducts(self):
+        """
+        セブンイレブンの既存商品をスクレイピングする一連の処理
+        """
         createTestStore()
         createTestItemCategoryList()
 
-        # サービス関数を呼び出して結果を取得
-        result = scrapingSevenElevenExistingProducts()
+        scrapingSevenElevenExistingProducts()
+
+    def testScrapingSevenElevenNewProducts(self):
+        """
+        セブンイレブンの新商品をスクレイピングする一連の処理
+        """
+        createTestStore()
+        createTestItemCategoryList()
+
+        scrapingSevenElevenNewProducts()

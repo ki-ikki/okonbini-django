@@ -62,3 +62,6 @@ class Item(models.Model):
             updated_at = now()
         )
         return item
+
+    def isItemExist(itemName):
+        return Item.objects.filter(item_name=itemName).exists()

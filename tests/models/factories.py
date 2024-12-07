@@ -91,7 +91,7 @@ def createTestItemCategoryList():
         'other'
     ]
     for itemCategory in itemCategories:
-        return ItemCategory.objects.create(
+        ItemCategory.objects.create(
             category_name = itemCategory,
             is_active = True,
             created_at = now(),

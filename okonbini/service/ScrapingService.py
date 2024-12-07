@@ -33,7 +33,6 @@ def downLoadImageFromUrl(
         with open(itemSavePath, "wb") as pi:
             for chunk in getItemImage.iter_content(1024):  # 1KBずつ書き込み
                 pi.write(chunk)
-        print("保存しました:", itemSavePath)
     except requests.exceptions.RequestException as e:
         print("画像のダウンロード中にエラーが発生しました:", e)
 
