@@ -5,9 +5,9 @@ class Contact(models.Model):
         'User',
         on_delete=models.DO_NOTHING,
     )
-    email = models.CharField(max_length=255)
-    content = models.TextField()
-    created_at = models.DateTimeField(blank=True, null=True)
+    email = models.CharField(max_length=255, null=False)
+    content = models.TextField(null=False)
+    created_at = models.DateTimeField()
 
     class Meta:
         # managed = False

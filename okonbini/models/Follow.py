@@ -5,14 +5,16 @@ class Follow(models.Model):
         'User',
         on_delete=models.DO_NOTHING,
         related_name='follower_user',
+        null=False
     )
     followee_user = models.ForeignKey(
         'User',
         on_delete=models.DO_NOTHING,
         related_name='followee_user',
+        null=False
     )
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
 
     class Meta:
         # managed = False

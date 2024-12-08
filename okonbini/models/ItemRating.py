@@ -5,19 +5,21 @@ class ItemRating(models.Model):
     item = models.ForeignKey(
         'Item',
         on_delete=models.DO_NOTHING,
+        null=False
     )
     store = models.ForeignKey(
         'Store',
         on_delete=models.DO_NOTHING,
+        null=False
     )
-    favorite_weekly_count = models.IntegerField(blank=True, null=True)
-    favorite_monthly_count = models.IntegerField(blank=True, null=True)
-    favorite_total_count = models.IntegerField(blank=True, null=True)
-    review_weekly_count = models.IntegerField(blank=True, null=True)
-    review_monthly_count = models.IntegerField(blank=True, null=True)
-    review_total_count = models.IntegerField(blank=True, null=True)
-    sort_date = models.DateField(blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
+    favorite_weekly_count = models.IntegerField(null=False)
+    favorite_monthly_count = models.IntegerField(null=False)
+    favorite_total_count = models.IntegerField(null=False)
+    review_weekly_count = models.IntegerField(null=False)
+    review_monthly_count = models.IntegerField(null=False)
+    review_total_count = models.IntegerField(null=False)
+    sort_date = models.DateField(null=False)
+    created_at = models.DateTimeField()
 
     class Meta:
         # managed = False

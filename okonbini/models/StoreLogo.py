@@ -5,10 +5,11 @@ class StoreLogo(models.Model):
     store = models.OneToOneField(
         'Store',
         on_delete=models.DO_NOTHING,
+        null=False
     )
-    store_image_url = models.TextField()
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    store_image_url = models.TextField(null=False)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
 
     class Meta:
         # managed = False
