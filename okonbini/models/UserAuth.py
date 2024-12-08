@@ -6,8 +6,8 @@ class UserAuth(models.Model):
         on_delete=models.DO_NOTHING,
     )
     identity_type = models.CharField(max_length=50)
-    password = models.TextField(blank=True, null=True)
-    token = models.TextField(blank=True, null=True)
+    password = models.TextField(blank=True)
+    token = models.TextField(blank=True)
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
