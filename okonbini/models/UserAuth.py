@@ -9,8 +9,8 @@ class UserAuth(models.Model):
     identity_type = models.CharField(max_length=50, null=False)
     password = models.TextField(null=False)
     token = models.TextField(null=False)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(null=True)
 
     class Meta:

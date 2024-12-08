@@ -13,8 +13,8 @@ class Review(models.Model):
         on_delete=models.DO_NOTHING,
         null=False
     )
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(null=True)
 
     class Meta:

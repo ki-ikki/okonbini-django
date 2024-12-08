@@ -31,8 +31,8 @@ class ItemCategory(models.Model):
 
     category_name = models.CharField(unique=True, max_length=255, null=False)
     is_active = models.BooleanField(null=False)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'item_categories'

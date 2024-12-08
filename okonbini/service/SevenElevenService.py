@@ -77,11 +77,15 @@ def scrapingSevenElevenExistingProducts():
             # 商品一覧から商品情報を取得
             itemTextData = BeautifulSoup(requestGetItemUrlLists.text, 'html.parser').find_all(class_='list_inner')
 
+            if itemTextData is not None:
             # 商品詳細ページのテキストデータから商品情報を保存する
-            try:
-                scrapingItemDetailDataFromHtml(itemTextData, store, False, itemCategory)
-            except Exception as e:
-                print(f'商品詳細ページのテキストデータから商品情報を保存する際にエラーが発生しました : {e}')
+                try:
+                    scrapingItemDetailDataFromHtml(itemTextData, store, False, itemCategory)
+                except Exception as e:
+                    print(f'商品詳細ページのテキストデータから商品情報を保存する際にエラーが発生しました : {e}')
+                    continue
+            else:
+                print(f'商品一覧が取得できませんでした。itemCategoryUrlId : {itemCategoryUrlId}, itemCategoryUrlListId : {itemCategoryUrlListId}')
                 continue
 
 def scrapingSevenElevenNewProducts():
@@ -92,16 +96,16 @@ def scrapingSevenElevenNewProducts():
 
     areaListIds = [
         'hokkaido',
-        'tohoku',
-        'kanto',
-        'koshinetsu',
-        'hokuriku',
-        'tokai',
-        'kinki',
-        'chugoku',
-        'shikoku',
-        'kyushu',
-        'okinawa'
+        # 'tohoku',
+        # 'kanto',
+        # 'koshinetsu',
+        # 'hokuriku',
+        # 'tokai',
+        # 'kinki',
+        # 'chugoku',
+        # 'shikoku',
+        # 'kyushu',
+        # 'okinawa'
     ]
 
     store = Store.getStoreFromName(Store.SEVEN_ELEVEN)
@@ -131,6 +135,7 @@ def scrapingSevenElevenNewProducts():
                     continue
             else:
                 print(f'商品一覧が取得できませんでした。areaId : {areaListId}, itemCategoryUrlListId : {itemCategoryUrlListId}')
+                continue
 
 def scrapingItemDetailDataFromHtml(parserItemTextData, store, isNewProduct=True, itemCategory=None):
     # 商品情報から商品詳細ページを取得する
@@ -208,6 +213,7 @@ def scrapingItemDetailDataFromHtml(parserItemTextData, store, isNewProduct=True,
                 itemReleaseDate,
                 True
             )
+
             print('商品情報を保存しました')
             ic(
                 item.store.store_name,

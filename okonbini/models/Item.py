@@ -27,8 +27,8 @@ class Item(models.Model):
     release_date = models.DateField(null=True)
     search_vector = SearchVectorField(null=True)
     is_active = models.BooleanField(null=False)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

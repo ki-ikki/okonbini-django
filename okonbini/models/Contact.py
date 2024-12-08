@@ -7,7 +7,7 @@ class Contact(models.Model):
     )
     email = models.CharField(max_length=255, null=False)
     content = models.TextField(null=False)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

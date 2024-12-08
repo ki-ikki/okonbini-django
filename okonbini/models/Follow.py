@@ -13,8 +13,8 @@ class Follow(models.Model):
         related_name='followee_user',
         null=False
     )
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

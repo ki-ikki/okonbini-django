@@ -19,7 +19,7 @@ class ItemRating(models.Model):
     review_monthly_count = models.IntegerField(null=False)
     review_total_count = models.IntegerField(null=False)
     sort_date = models.DateField(null=False)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

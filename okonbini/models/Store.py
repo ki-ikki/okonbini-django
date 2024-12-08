@@ -9,7 +9,7 @@ class Store(models.Model):
     store_name = models.CharField(max_length=255, null=False)
     color_code = models.CharField(max_length=7, null=False)
     is_active = models.BooleanField(null=False)
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(null=True)
 
     class Meta:

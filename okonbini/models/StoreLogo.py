@@ -8,8 +8,8 @@ class StoreLogo(models.Model):
         null=False
     )
     store_image_url = models.TextField(null=False)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False
