@@ -7,8 +7,8 @@ class UserAuth(models.Model):
         null=False
     )
     identity_type = models.CharField(max_length=50, null=False)
+    unique_id = models.TextField(null=False)
     password = models.TextField(null=False)
-    token = models.TextField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(null=True)
