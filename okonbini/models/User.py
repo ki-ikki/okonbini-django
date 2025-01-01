@@ -2,7 +2,6 @@ from django.db import models
 
 class User(models.Model):
     user_name = models.CharField(max_length=255, null=False)
-    email = models.CharField(unique=True, max_length=255, null=False)
     description = models.TextField(null=True)
     profile_image_url = models.CharField(null=True)
     location = models.CharField(max_length=255, null=True)

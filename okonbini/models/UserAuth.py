@@ -8,6 +8,7 @@ class UserAuth(models.Model):
     )
     identity_type = models.CharField(max_length=50, null=False)
     unique_id = models.TextField(null=False)
+    email = models.CharField(unique=True, max_length=255, null=False)
     password = models.TextField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
