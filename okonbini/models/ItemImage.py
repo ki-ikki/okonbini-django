@@ -2,9 +2,9 @@ from django.db import models
 from django.utils.timezone import now
 
 class ItemImage(models.Model):
-    item_image_url = models.TextField()
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    item_image_url = models.TextField(null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

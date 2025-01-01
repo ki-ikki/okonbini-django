@@ -6,11 +6,11 @@ class Store(models.Model):
     LAWSON = 'lawson'
     FAMILY_MART = 'family_mart'
 
-    store_name = models.CharField(max_length=255)
-    color_code = models.CharField(max_length=7, blank=True, null=True)
-    is_active = models.BooleanField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
-    deleted_at = models.DateTimeField(blank=True, null=True)
+    store_name = models.CharField(max_length=255, null=False)
+    color_code = models.CharField(max_length=7, null=False)
+    is_active = models.BooleanField(null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    deleted_at = models.DateTimeField(null=True)
 
     class Meta:
         # managed = False

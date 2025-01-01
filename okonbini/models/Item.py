@@ -9,23 +9,26 @@ class Item(models.Model):
     store = models.ForeignKey(
         'Store',
         on_delete=models.DO_NOTHING,
+        null=False
     )
     item_category = models.ForeignKey(
         'ItemCategory',
         on_delete=models.DO_NOTHING,
+        null=False
     )
     item_image = models.OneToOneField(
         'ItemImage',
         on_delete=models.DO_NOTHING,
+        null=False
     )
-    item_name = models.CharField(max_length=255)
-    item_info = models.TextField(blank=True, null=True)
-    price = models.IntegerField()
-    release_date = models.DateField(blank=True, null=True)
-    search_vector = SearchVectorField(blank=True, null=True)
-    is_active = models.BooleanField(blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    item_name = models.CharField(max_length=255, null=False)
+    item_info = models.TextField(null=True)
+    price = models.IntegerField(null=False)
+    release_date = models.DateField(null=True)
+    search_vector = SearchVectorField(null=True)
+    is_active = models.BooleanField(null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         # managed = False

@@ -29,10 +29,10 @@ class ItemCategory(models.Model):
     CATEGORY_ALCOHOL = 'alcohol' # 酒類
     CATEGORY_OTHER = 'other' # その他
 
-    category_name = models.CharField(unique=True, max_length=255)
-    is_active = models.BooleanField(blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    category_name = models.CharField(unique=True, max_length=255, null=False)
+    is_active = models.BooleanField(null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'item_categories'
