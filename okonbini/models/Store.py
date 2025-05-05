@@ -7,6 +7,7 @@ class Store(models.Model):
     FAMILY_MART = 'family_mart'
 
     store_name = models.CharField(max_length=255, null=False)
+    store_logical_name = models.CharField(max_length=255, null=False)
     color_code = models.CharField(max_length=7, null=False)
     is_active = models.BooleanField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -21,11 +22,13 @@ class Store(models.Model):
 
     def createStore(
         store_name,
+        store_logical_name,
         colorCode=None,
         isActive=True
         ):
             store = Store.objects.create(
                 store_name = store_name,
+                store_logical_name = store_logical_name,
                 color_code = colorCode,
                 is_active = isActive,
                 updated_at = now(),

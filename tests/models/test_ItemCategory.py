@@ -8,9 +8,11 @@ class CreateItemCategoryTestCase(TestCase):
     def testCreateItemCategorySuccess(self):
         """正常系: アイテムカテゴリが正常に作成される"""
         itemCategoryName = "Test Category"
+        itemCategoryLabel = "Test Category Label"
 
         itemCategory = ItemCategory.createItemCategory(
             itemCategoryName,
+            itemCategoryLabel
         )
 
         self.assertIsNotNone(itemCategory.id)

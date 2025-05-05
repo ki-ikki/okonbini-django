@@ -30,6 +30,7 @@ class ItemCategory(models.Model):
     CATEGORY_OTHER = 'other' # その他
 
     category_name = models.CharField(unique=True, max_length=255, null=False)
+    category_label = models.CharField(unique=True, max_length=255, null=False)
     is_active = models.BooleanField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
@@ -40,9 +41,10 @@ class ItemCategory(models.Model):
     def __str__(self):
         return self.category_name
 
-    def createItemCategory(itemCategoryName):
+    def createItemCategory(itemCategoryName, itemCategoryLabel):
         itemCategory = ItemCategory.objects.create(
             category_name=itemCategoryName,
+            category_label=itemCategoryLabel,
             is_active=True,
             created_at=now(),
             updated_at=now(),

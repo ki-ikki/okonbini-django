@@ -8,13 +8,15 @@ class CreateStoreTestCase(TestCase):
     def testCreateStoreSuccess(self):
         """正常系: ストアが正常に作成される"""
         store_name = "Test Store"
+        store_logical_name = "テストストア"
         color_code = "#FFFFFF"
         is_active = True
 
-        store = Store.createStore(store_name, color_code, is_active)
+        store = Store.createStore(store_name, store_logical_name, color_code, is_active)
 
         self.assertIsNotNone(store.id)
         self.assertEqual(store.store_name, store_name)
+        self.assertEqual(store.store_logical_name, store_logical_name)
         self.assertEqual(store.color_code, color_code)
         self.assertEqual(store.is_active, is_active)
         self.assertIsNone(store.deleted_at)
