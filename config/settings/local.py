@@ -23,3 +23,6 @@ DATABASES = {
         'PORT': '5432',  # ポート番号
     }
 }
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = BASE_DIR / 'images'
